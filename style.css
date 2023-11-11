@@ -1,34 +1,187 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     /* font-family: 'Poppins', sans-serif; */
+     /* ye list style hatane k liye yani dout ko */
+     list-style: none;
+     /* ye text mai underline ko hatane k liye use ho rha hai */
+     text-decoration: none;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    background-color: darkgray;
-}
+ }
 
+ html,
+ body {
+     height: 100%;
+     width: 100%;
+     background-color: darkgray;
+ }
+
+ /* ======================== SATART NAVBAR DESIGN 11 November 2023 ======================== */
+
+ /* =================== Nav bar design =================== */
+ nav {
+     height: 90px;
+     width: 100%;
+     background: #2c3e50;
+     position: fixed;
+     z-index: 1000;
+ }
+
+ /* =================== Logo design =================== */
+ nav img {
+     height: 65px;
+     border-radius: 10px;
+     /* width: 150px; ; */
+     position: absolute;
+     /* position: absolute ki bad top, left kam karta hai; */
+     top: 10px;
+     left: 8%;
+ }
+
+ /* =================== Nav text aliment design =================== */
+ nav ul {
+     float: right;
+     margin-right: 25px;
+ }
+
+ nav ul li {
+     display: inline-block;
+     line-height: 80px;
+     margin: 0 15px;
+ }
+
+ nav ul li a {
+     position: relative;
+     color: white;
+     font-size: 18px;
+     text-transform: uppercase;
+     padding: 5px 0;
+ }
+
+ /* =================== Nav text underline Ainmation design =================== */
+ nav ul li a::before {
+     position: absolute;
+     content: '';
+     left: 0;
+     bottom: 0;
+     height: 3px;
+     width: 100%;
+     background: rgb(244, 205, 34);
+     /* filhal isko 0 kar diya gya par hover karne par 1 ho jayega jaisa ki niche code lilha hua hai */
+     transform: scaleX(0);
+     transform-origin: right;
+     transition: transform .3s linear;
+
+ }
+
+ nav ul li a:hover::before {
+     /* scaleX ko badhane k liye kyuki pahle se o kiya hua hai */
+     transform: scaleX(1);
+     /* animation left se suru karne k liye */
+     transform-origin: left;
+ }
+
+ /* dono icon ko select ko degine karne k liye  */
+ label #btn,
+ label #cancel {
+     color: white;
+     font-size: 40px;
+     /* right: mai shift karne k liye; */
+     float: right;
+     margin-right: 30px;
+     line-height: 80px;
+     /* hath vala simble lane k liye */
+     cursor: pointer;
+     display: none;
+ }
+
+ /* check box hatane k liye */
+ #check {
+     display: none;
+ }
+
+ /* =================== For Making Responsive =================== */
+
+
+ /* yaha iska matlab ye hai ki jab screen ka width 1118px se kam hoga to logo ko left se 8% mai shift kar dena */
+ @media (max-width:1118px) {
+     nav img {
+         left: 8%;
+     }
+ }
+
+ /* yaha iska matlab ye hai ki jab screen ka width 994px se kam hoga to logo ko left se 6% mai shift kar dena aru height jo andar likha hua hai use chala dena*/
+
+ @media (max-width:944px) {
+     nav img {
+         left: 6%;
+         top: 10px;
+         height: 70px;
+     }
+
+     nav ul li a {
+         font-size: 17px;
+     }
+ }
+
+ /* iska matlab ye sara code chala to jab 680px se kam ho */
+ @media (max-width:680px) {
+     label #btn {
+         display: block;
+     }
+
+     ul {
+         position: fixed;
+         width: 100%;
+         height: 100vh;
+         background: #34495e;
+         top: 80px;
+         left: -100%;
+         text-align: center;
+         transition: all .5s;
+     }
+
+     nav ul li {
+         display: block;
+         margin: 50px 0;
+         line-height: 30px;
+     }
+
+     nav ul li a {
+         font-size: 20px;
+         font-weight: 700;
+     }
+
+     #check:checked~ul {
+         left: 0;
+     }
+
+     #check:checked~label #btn {
+         display: none;
+
+     }
+
+     #check:checked~label #cancel {
+         display: block;
+     }
+ }
+
+ /* ======================== END NAVBAR DESIGN 11 November 2023 ======================== */
+ /* ======================== SATART NAVBAR DESIGN on Fist time ======================== */
+
+ /*
 #header {
     height: 130px;
     width: 100%;
-    /* background-color: red; */
     position: fixed;
 }
-
 #nav-list-parent {
-
     display: flex;
-    /* align-items: start; */
-    /* justify-content: center; */
     gap: 20px;
     background-color: rgba(50, 219, 163, 0.586);
-
 }
-
 .nav-list {
     padding: 5px;
     text-transform: uppercase;
@@ -38,169 +191,204 @@ body {
     margin: 5px;
     margin-top: 10px;
 }
-#home{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-#home #home-left{
-    height: 500px;
-    width: 50%;
-    /* background-color: red; */
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
-}
-#home #home-left h2{
-    
-    font-size: 50px;
-    font-weight: 800;
+*/
 
-}
-#home #home-left h2 span{
-    color: rgb(60, 19, 184);
-}
-#home #home-right{
-    height: 600px;
-    width: 40%;
-    /* background-color: red; */
-    /* border: 1px solid blue; */
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}   
-#home #home-right img{
-    margin-top: 60px;
-    height: 660px;
-    object-fit: cover;
-    border-radius: 20px;
-   /* z-index: -1; */
-    
-}
-#work{
-    height: 100vh;
-    width: 100%;
-}
+ /* ======================== END NAVBAR DESIGN ======================== */
 
-.pageheader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    font-size: 40px;
-    font-weight: 800;
+ /* ======================== Home Page Design ======================== */
 
-}
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;    
-}
-.wbox{
-    border: 1px solid #fff;
-    height: 230px;
-    width: 400px;
-    margin: 10px;
-    border-radius: 10px;
-    
-}
-.wbox img{
-    height: 230px;
-    width: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    
-}
-#about{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 200px;
-}
-#about #aleft{
-    height: 100%;
-    width: 400px;
-    /* border: 1px solid #fff; */
-    border-radius: 20px;
-}
-#about #aleft img{
-    height: 660px;    
-    margin-bottom: 0;
-    
-}
-#about #aright{
-    height: 500px;
-    width: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-#about #aright h2{
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-#about #aright p{
-    font-size: 20px;
-    margin-top: 20px;
-    text-align: center;
-}
-#skills{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#sleft{
-    height: 100%;
-    width: 50%;
-    text-align: center;
-    margin-top: 500px;
-    text-align: start;
-    line-height: 80px;
-}
-#sright{
-    height: 800px;
-    width: 400px    ;
-    margin-top: 500px;
-}
-#sright img{
-    height: 400px;
-    width: 500px;
-    text-align: center;
-    object-fit: cover;
-    border-radius: 20px;
-}
-#contact{
-    height: 60vh;
-    width: 100%;
-}
-.cbox{
-    height: 60%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-#contact .cbox input{
-    border: 1px solid blue;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 15px 50px;
-}
-#contact .cbox button{
-    border: 1px solid red;
-    margin: 20px;
-    border-radius: 40px;
-    padding:5px 20px ;
-}
+ #home {
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+ }
+
+ #home #home-left {
+     height: 500px;
+     width: 50%;
+     /* background-color: red; */
+     display: flex;
+     align-items: start;
+     justify-content: center;
+     flex-direction: column;
+ }
+
+ #home #home-left h2 {
+
+     font-size: 50px;
+     font-weight: 800;
+
+ }
+
+ #home #home-left h2 span {
+     color: rgb(255, 234, 0);
+ }
+
+ #home #home-right {
+     height: 600px;
+     width: 40%;
+     /* background-color: red; */
+     /* border: 1px solid blue; */
+     border-radius: 30px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ #home #home-right img {
+     /* margin-top: 60px; */
+     height: 650px;
+     border-radius: 20px;
+     position: absolute;
+    top: 80px;
+
+ }
+
+ /* ======================== Work Page Design ======================== */
+ #work {
+     height: 100vh;
+     width: 100%;
+ }
+
+ .pageheader {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-transform: uppercase;
+     font-size: 40px;
+     font-weight: 800;
+
+ }
+
+ .container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-wrap: wrap;
+ }
+
+ .wbox {
+     border: 1px solid #fff;
+     height: 230px;
+     width: 400px;
+     margin: 10px;
+     border-radius: 10px;
+
+ }
+
+ .wbox img {
+     height: 230px;
+     width: 400px;
+     object-fit: cover;
+     border-radius: 10px;
+
+ }
+
+ /* ======================== About Page Design ======================== */
+
+ #about {
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 200px;
+ }
+
+ #about #aleft {
+     height: 100%;
+     width: 400px;
+     /* border: 1px solid #fff; */
+     border-radius: 20px;
+ }
+
+ #about #aleft img {
+     height: 660px;
+     margin-bottom: 0;
+
+ }
+
+ #about #aright {
+     height: 500px;
+     width: 700px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+ }
+
+ #about #aright h2 {
+     font-size: 50px;
+     margin-bottom: 20px;
+ }
+
+ #about #aright p {
+     font-size: 20px;
+     margin-top: 20px;
+     text-align: center;
+ }
+
+ /* ======================== Skills Page Design ======================== */
+ #skills {
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ #sleft {
+     height: 100%;
+     width: 50%;
+     text-align: center;
+     margin-top: 500px;
+     text-align: start;
+     line-height: 80px;
+ }
+
+ #sright {
+     height: 800px;
+     width: 400px;
+     margin-top: 500px;
+ }
+
+ #sright img {
+     height: 400px;
+     width: 500px;
+     text-align: center;
+     object-fit: cover;
+     border-radius: 20px;
+ }
+
+ /* ======================== Contact Page Design ======================== */
+
+ #contact {
+     height: 60vh;
+     width: 100%;
+ }
+
+ .cbox {
+     height: 60%;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+ }
+
+ #contact .cbox input {
+     border: 1px solid blue;
+     border-radius: 20px;
+     margin: 10px;
+     padding: 15px 50px;
+ }
+
+ #contact .cbox button {
+     border: 1px solid red;
+     margin: 20px;
+     border-radius: 40px;
+     padding: 5px 20px;
+ }
